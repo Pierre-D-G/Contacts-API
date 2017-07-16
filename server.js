@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
 // Get our API routes
 const api = require('./server/api/api');
@@ -43,3 +44,5 @@ const server = http.createServer(app);
 
 
 server.listen(port, () => console.log(`API running on localhost:${port}`));
+
+module.exports = app 
