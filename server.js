@@ -26,11 +26,19 @@ app.use(function(req, res, next) {
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
-app.use('/api/contacts', api);
+app.route('/api/contacts')
+  .get(api.getContacts)
+  .post(api.addContact);
+
+app.route('/api/contacts/:id')
+  .get(api.GetContact)
+  .put(api.updateContact)
+  .delete(api.deleteContact);
 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+  // res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.redirect('/api/contacts')
 });
 
 /**

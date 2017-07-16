@@ -26,7 +26,20 @@ let Contact = sequelize.import(__dirname + "/models/contact.js");
 //Require the dev-dependencies
 let chai = require('chai');
 let chaiHttp = require('chai-http');
-let server = require('../server');
+let server = require('../../server')
 let should = chai.should();
 
 chai.use(chaiHttp);
+
+// Testing GET all contacts route
+describe('Get all contacts', () => {
+    it('it should GET all contacts', (done) => {
+        chai.request(server)
+            .get('/api/contacts')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('array');
+                done();
+            })
+    })
+})

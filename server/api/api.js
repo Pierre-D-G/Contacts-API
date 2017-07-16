@@ -1,8 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const config = require('../../config');
 const Sequelize = require('sequelize');
-const seed = require('./database')
+const seed = require('./database');
 
 // Database configuration
 const sequelize = new Sequelize(config.database, config.username, config.password, {
@@ -29,40 +28,36 @@ sequelize
 // Import Contact model
 const Contact = sequelize.import(__dirname + "/models/contact.js");
 
-// Creates table defined in Contact model if the table doesnt exist
-// Contact.sync();
-
-// Seeds database with test data
-// seed.seedData();
-
 /* GET ALL CONTACTS. */
-router.get('/', (req, res) => {
+getContacts = (req, res) => {
   Contact.findAll().then(contacts => {
+    res.status(200);
     return res.json(contacts)
   }).catch(err => {
     res.status(404);
     return res.json({ errors: ['Could not retrieve contacts'] })
   })
-});
+};
 
 /* GET SINGLE CONTACT*/
 
-router.get('/:id', (req, res) => {
+GetContact = (req, res) => {
   Contact.findOne({
     where: {
       id: req.params.id
     }
   }).then(contact => {
+    res.status(200);
     return res.json(contact)
   }).catch(err => {
     res.status(404);
     return res.json({ errors: ['Could not retrieve contact from the database'] })
   })
-});
+};
 
 // Add new Contact
 
-router.post('/', (req, res) => {
+addContact = (req, res) => {
   Contact.create({
     avatar_url: req.body.avatar_url,
     first_name: req.body.first_name,
@@ -77,15 +72,16 @@ router.post('/', (req, res) => {
     state: req.body.state,
     zip_code: req.body.zip_code
   }).then(function () {
+    res.status(200);
     return res.json({ "success": "Contact Created" })
   }).catch(err => {
     res.status(400);
     return res.json({ "error": "Bad Request" })
   })
-});
+};
 
 // Update a Contact's Details
-router.put('/:id', (req, res) => {
+updateContact = (req, res) => {
   Contact.update({
     avatar_url: req.body.avatar_url,
     first_name: req.body.first_name,
@@ -106,24 +102,26 @@ router.put('/:id', (req, res) => {
       }
     }
   ).then(function () {
+    res.status(200);
     return res.json({ "success": "Updated contact's details" })
   }).catch(err => {
     res.status(400);
     return res.json({ "error": "Bad Request" })
   })
-})
+};
 
-router.delete('/:id', (req,res) =>{
+deleteContact = (req,res) =>{
   Contact.destroy({
     where: {
       id: req.params.id
     }
   }).then(function() {
+    res.status(200);
     return res.json({ "success": "Deleted contact's details" })
   }).catch(err => {
     res.status(404);
     return res.json({ "error": "Contact not found" })
   })
-})
+}
 
-module.exports = router;
+module.exports = { getContacts, GetContact, addContact, updateContact, deleteContact};
