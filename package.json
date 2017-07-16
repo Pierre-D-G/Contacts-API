@@ -1,0 +1,27 @@
+{
+  "name": "contacts-manager",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server.js --watch server",
+	  "test": "mocha"
+  },
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "core-js": "^2.4.1",
+    "express": "^4.15.3",
+	"morgan": "*",
+    "nodemon": "^1.11.0",
+    "pg": "^6.4.0",
+    "pg-hstore": "^2.3.2",
+    "rxjs": "^5.1.0",
+    "sequelize": "4.2.1",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5"
+  }
+}
