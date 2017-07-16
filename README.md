@@ -25,7 +25,7 @@ Run `npm run dev` for the express dev server. Navigate to `http://localhost:3000
 
 ## Running unit tests
 
-Run `npm run test` to execute the unit tests via Mocha and Chai
+Run `npm test` to execute the unit tests via Mocha and Chai
 
 ## TODO
 
@@ -38,7 +38,7 @@ Run `npm run test` to execute the unit tests via Mocha and Chai
 
   
 * Routes Tests
-  - Get - `/api/contacts` - view all your contacts and a few details about them
+  - ~~Get - `/api/contacts` - view all your contacts and a few details about them~~
   - Get - `/api/contacts/:id` - view all the details about a contact~
   - Post - `/api/contacts` - Create a new contact
   - Put - `/api/contacts/:id` - Update a contact's details
