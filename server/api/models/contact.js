@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     avatar_url: {
       type: Sequelize.STRING,
       allowNull: false,
+      defaultValue: 'http://www.st2299.com/data/wallpapers/141/wp-image-59514836-plain-background-images.jpg',
       validate: {
         isUrl: true
       }
@@ -33,55 +34,42 @@ module.exports = (sequelize, DataTypes) => {
     company: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: true
-      }
+      defaultValue: 'none'
     },
     home_phone: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: true
-      }
+      defaultValue: 'none'
     },
     mobile_phone: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: true
-      }
+      defaultValue: 'none'
     },
     work_phone: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: true
-      }
+      defaultValue: 'none'
     },
     street_address: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: true
-      }
+      defaultValue: 'none'
     },
     city: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: true
-      }
+      defaultValue: 'none'
     },
     state: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: true
-      }
+      defaultValue: 'none'
     },
     zip_code: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
+      defaultValue: 'none'
     }
 
   })}
