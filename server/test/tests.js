@@ -180,4 +180,37 @@ describe('Contacts Involving Queries to database', () => {
     })
   });
 
+  // Testing DELETE route to dlete a contatc
+  // DELETE /api/contacts/id
+
+   describe('Delete a contact', () => {
+    it('it should delete the details of a single contact given the id', (done) => {
+      let contact = {
+        "first_name": "TestName",
+        "last_name": "TestLastNaem",
+        "email": "test.email@gmail.com",
+        "avatar_url": "http://www.st2299.com/data/wallpapers/65/wp-image-58065399.jpg",
+        "company": "Test LLC",
+        "home_phone": "123-4567",
+        "mobile_phone": "234-5678",
+        "work_phone": "345-6789",
+        "street_address": "743 Test Street ",
+        "city": "Tester",
+        "state": "Testing",
+        "zip_code": "12345",
+      }
+
+      Contact.create(contact).then(contact => {
+        chai.request(server)
+          .delete('/api/contacts/' + contact.id)
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            res.body.should.have.property('success').eql("Deleted contact's details");
+            done();
+          })
+      })
+    })
+  });
+
 })
