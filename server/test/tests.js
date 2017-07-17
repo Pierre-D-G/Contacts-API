@@ -35,16 +35,7 @@ let should = chai.should();
 
 chai.use(chaiHttp);
 
-
-describe('Contacts', () => {
-  beforeEach((done) => {
-    db.clearDatabase();
-    db.seedDb();
-    console.log('running tests')
-    done();
-  });
-
-  // Testing GET all contacts route
+// Testing GET all contacts route
   // GET /api/contacts
   describe('Get all contacts', () => {
     it('it should GET all contacts', (done) => {
@@ -58,6 +49,13 @@ describe('Contacts', () => {
     })
   });
 
+  
+describe('Contacts Involving Queries to database', () => {
+  beforeEach((done) => {
+    db.clearDatabase();
+    db.seedDb();
+    done();
+  });
   // Testing Post a new contact route
   // POST /api/contacts
 
@@ -84,7 +82,6 @@ describe('Contacts', () => {
           res.should.have.status(200);
           res.body.should.be.a('object');
           res.body.should.have.property('success').eql('Contact Created');
-          console.log('post contact response', res.body)
           done();
         })
     })
