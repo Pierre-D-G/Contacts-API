@@ -105,12 +105,17 @@ updateContact = (req, res) => {
     {
       where: {
         id: req.params.id
-      }
+      },
+      returning: true,
+      raw: true,
+      plain: true
     }
-  ).then(function () {
+  ).then((contact) => {
+    let updatedContact = contact[1];
     res.status(200);
-    return res.json({ "success": "Updated contact's details" })
+    return res.json({ "success": "Updated contact's details", updatedContact })
   }).catch(err => {
+    console.log(err);
     res.status(400);
     return res.json({ "error": "Bad Request" })
   })
