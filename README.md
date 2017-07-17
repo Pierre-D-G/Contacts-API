@@ -1,46 +1,93 @@
 # Contacts Manager API
+> Node, Express, PostreSQL RESTful API
 
-PostgreSQL,Express and Node REST API to manage your contacts.
+Manage the details of your contacts.View, add, update and delete your contacts details such as name, phone numbers and location.
 
+## Developing
 
-#### API End Points
+### Built With
 
-* Get - `/api/contacts` - view all your contacts and a few details about them
-* Get - `/api/contacts/:id` - view all the details about a contact 
-* Post - `/api/contacts` - Create a new contact
-* Put - `/api/contacts/:id` - Update a contact's details
-* Delete - `/api/contacts/:id` - Delete a contact
+* Node v6.10.0
+* Express v4.15.3
+* PostgreSQL v9.6
+* Sequelize v4.2.1 as ORM
 
-## Getting Started
+### Prerequisites
+What is needed to set up the dev environment. For instance, global dependencies or any other tools. include download links.
 
-Download or clone the repository `https://github.com/Pierre-D-G/Contacts-API.git`
+[Node](https://nodejs.org/en/)
+[PostgreSQL](https://www.postgresql.org/)
 
-Run `npm install` to install dependancies
+### Setting up Dev
 
-Requires postgreSQL installed on your machine.Get it here `https://www.postgresql.org/` and pgadmin if you like `https://www.pgadmin.org/`
+```shell
+Download or clone the repostisory
+git clone https://github.com/Pierre-D-G/Contacts-API.git
+cd Contacts API/
+Run npm install to install dependancies
+```
+Run `npm run dev` to run the development server
+  * runs `nodemon` to automatically restarted the server when a change is made
 
-## Development server
+Create a file named `config.js` in the root of the project folder with the structure:
 
-Run `npm run dev` for the express dev server. Navigate to `http://localhost:3000/api/contacts`
+```shell
+  module.exports = {
+  database: //'named of development database',
+  username: //'database login username',
+  password: //'database login password'
+}
+```
+## Tests
 
-## Running unit tests
+Run `npm test` to excecute units tests via Mocha and Jasmine
+  * Tests the API endpoints to make sure the correct responses are being sent when requests are made
 
-Run `npm test` to execute the unit tests via Mocha and Chai
+### Example 
 
-## TODO
+Testing Get all contacts
+  * GET /api/contacts -  retrieves all contacts
 
-* Routes
+```shell
+describe('Get all contacts', () => {
+  it('it should GET all contacts', (done) => {
+    chai.request(server)
+      .get('/api/contacts')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('array');
+        done();
+      })
+  })
+});
+```
+
+## Api Reference
+
+* GET - `/api/contacts` - view all your contacts and a few details about them
+* GET - `/api/contacts/:id` - view all the details about a contact 
+* POST - `/api/contacts` - Create a new contact
+* PUT - `/api/contacts/:id` - Update a contact's details
+* DELETE - `/api/contacts/:id` - Delete a contact
+
+## Development Path
+
+* Create Routes
   - Get - ~~`/api/contacts` - view all your contacts and a few details about them~~
   - Get - ~~`/api/contacts/:id` - view all the details about a contact~~ 
   - Post - ~~`/api/contacts` - Create a new contact~~
   - Put - ~~`/api/contacts/:id` - Update a contact's details~~
   - Delete - ~~`/api/contacts/:id` - Delete a contact~~
 
-  
-* Routes Tests
+
+
+* Create Route Tests
   - ~~Get - `/api/contacts` - view all your contacts and a few details about them~~
   - ~~Get - `/api/contacts/:id` - view all the details about a contact~~
   - ~~Post - `/api/contacts` - Create a new contact~~
   - ~~Put - `/api/contacts/:id` - Update a contact's details~~
   - ~~Delete - `/api/contacts/:id` - Delete a contact~~
 
+## Licensing
+
+MIT
