@@ -13,9 +13,9 @@ Manage the details of your contacts.View, add, update and delete your contacts d
 * Sequelize v4.2.1 as ORM
 
 ### Prerequisites
-What is needed to set up the dev environment. For instance, global dependencies or any other tools. include download links.
 
 [Node](https://nodejs.org/en/)
+
 [PostgreSQL](https://www.postgresql.org/)
 
 ### Setting up Dev
@@ -27,7 +27,7 @@ cd Contacts API/
 Run npm install to install dependancies
 ```
 Run `npm run dev` to run the development server
-  * runs `nodemon` to automatically restarted the server when a change is made
+> runs `nodemon` to automatically restart the server when a change is made
 
 Create a file named `config.js` in the root of the project folder with the structure:
 
@@ -40,13 +40,13 @@ Create a file named `config.js` in the root of the project folder with the struc
 ```
 ## Tests
 
-Run `npm test` to excecute units tests via Mocha and Jasmine
-  * Tests the API endpoints to make sure the correct responses are being sent when requests are made
+Run `npm test` to execute unit tests via Mocha and Chai
+> Tests the API endpoints to make sure the correct responses are being sent when requests are made
 
 ### Example 
 
 Testing Get all contacts
-  * GET /api/contacts -  retrieves all contacts
+> GET /api/contacts -  retrieves all contacts
 
 ```shell
 describe('Get all contacts', () => {
