@@ -42,5 +42,5 @@ Run `npm test` to execute the unit tests via Mocha and Chai
   - ~~Get - `/api/contacts/:id` - view all the details about a contact~~
   - ~~Post - `/api/contacts` - Create a new contact~~
   - ~~Put - `/api/contacts/:id` - Update a contact's details~~
-  - Delete - `/api/contacts/:id` - Delete a contact
+  - ~~Delete - `/api/contacts/:id` - Delete a contact~~
 
