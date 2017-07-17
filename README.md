@@ -13,7 +13,7 @@ PostgreSQL,Express and Node REST API to manage your contacts.
 
 ## Getting Started
 
-Download or clone the repository
+Download or clone the repository `https://github.com/Pierre-D-G/Contacts-API.git`
 
 Run `npm install` to install dependancies
 
