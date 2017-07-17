@@ -28,6 +28,12 @@ sequelize
 // Import Contact model
 const Contact = sequelize.import(__dirname + "/models/contact.js");
 
+// Create contacts table if it doesnt exist
+// Contact.sync();
+
+// Inserting sample data in table
+// seed.seedDb();
+
 /* GET ALL CONTACTS. */
 getContacts = (req, res) => {
   Contact.findAll().then(contacts => {
