@@ -39,7 +39,7 @@ Run `npm test` to execute the unit tests via Mocha and Chai
   
 * Routes Tests
   - ~~Get - `/api/contacts` - view all your contacts and a few details about them~~
-  - Get - `/api/contacts/:id` - view all the details about a contact~
+  - ~~Get - `/api/contacts/:id` - view all the details about a contact~~
   - ~~Post - `/api/contacts` - Create a new contact~~
   - Put - `/api/contacts/:id` - Update a contact's details
   - Delete - `/api/contacts/:id` - Delete a contact
