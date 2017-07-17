@@ -1,6 +1,6 @@
 # Contacts Manager API
 
-PostgreSQL,Express and Node REST API to magange your contacts.
+PostgreSQL,Express and Node REST API to manage your contacts.
 
 
 #### API End Points
